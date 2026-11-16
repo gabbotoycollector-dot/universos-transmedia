@@ -300,6 +300,23 @@ function mailWrap_(inner) {
 function esc_(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 
 /* ======================= TEMPLATE (Google Slides, editable) ======================= */
+/** Firma del tallerista: siempre presente en el certificado. */
+function insertSignature_(slide, H) {
+  slide.getImages().forEach(img => { if (img.getTitle() === 'firma') img.remove(); });
+  try {
+    const img = slide.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/firma-gabbo.png').getBlob(), 160, H - 98, 72, 72);
+    img.setTitle('firma');
+  } catch (e) { console.warn('No se pudo cargar la firma: ' + e); }
+}
+
+/** Agrega (o actualiza) la firma en la plantilla existente sin rehacer el diseño. */
+function addSignature() {
+  const pres = SlidesApp.openById(PropertiesService.getScriptProperties().getProperty('TPL_ID'));
+  insertSignature_(pres.getSlides()[0], pres.getPageHeight());
+  pres.saveAndClose();
+  console.log('Firma agregada a la plantilla.');
+}
+
 function buildTemplate_() {
   const pres = SlidesApp.create('Plantilla certificado · Universos Transmedia 2026C');
   const s = pres.getSlides()[0];
@@ -340,6 +357,7 @@ function buildTemplate_() {
   s.insertLine(SlidesApp.LineCategory.STRAIGHT, 40, H - 70, W - 40, H - 70).getLineFill().setSolidFill('#2A2B31');
   tx('TALLERISTA', 40, H - 62, 200, 14, { f: 'JetBrains Mono', s: 7, c: '#A0A0A0' });
   tx('PROFE GABBO', 40, H - 50, 260, 20, { f: 'Bricolage Grotesque', s: 14, b: true });
+  insertSignature_(s, H);
   tx('Gabriel Antolínez · Programa de Diseño Gráfico', 40, H - 32, 300, 14, { f: 'JetBrains Mono', s: 7, c: '#666666' });
   tx('CUN / Escuela de Diseño y Comunicación\nPrograma de Diseño Gráfico · Semana C 2026C', W - 340, H - 62, 300, 26, { f: 'JetBrains Mono', s: 7, c: '#00F0FF', a: R.END });
   tx('{{FECHA}} · Código {{CODIGO}}', W - 340, H - 34, 300, 14, { f: 'JetBrains Mono', s: 7, c: '#A0A0A0', a: R.END });
