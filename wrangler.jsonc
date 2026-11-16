@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers con assets estáticos (también sirve para Cloudflare Pages: carpeta de salida "public")
+  "name": "universos-transmedia",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "404-page"
+  }
+}

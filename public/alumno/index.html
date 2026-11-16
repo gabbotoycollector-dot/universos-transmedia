@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portal del laboratorio · Universos Transmedia</title>
+<meta name="description" content="Portal de estudiantes del taller Universos Transmedia · Semana C 2026C · CUN Diseño Gráfico">
+<link rel="stylesheet" href="alumno.css">
+</head>
+<body>
+<div class="halo h1"></div><div class="halo h2"></div>
+
+<header class="top">
+  <a class="brand" href="../"><img src="../img/cun.png" alt="CUN"><span class="mono g">UNIVERSOS TRANSMEDIA // PORTAL DEL LABORATORIO</span></a>
+  <div class="who" id="who" hidden><span class="avatar" id="avatar"></span><span id="whoName"></span><button class="lnk" id="logout">Salir</button></div>
+</header>
+<div class="demo" id="demo" hidden>Modo demostración: el portal aún no está conectado a Google Sheets. Tu avance solo se guarda en este navegador.</div>
+
+<!-- ============ AUTH ============ -->
+<main class="auth" id="authView" hidden>
+  <section class="auth-hero">
+    <div class="silk g">// Semana C 2026C · Masterclass + laboratorio</div>
+    <h1><span class="w">UNIVERSOS</span><span class="c">TRANSMEDIA</span></h1>
+    <p class="sub">Regístrate con tu correo CUN, completa las seis misiones del laboratorio y recibe tu certificado en PDF.</p>
+    <div class="portrait" id="portrait">
+      <div class="p-ring"></div>
+      <img src="../img/hero.webp" alt="Profe Gabbo sostiene un universo luminoso" class="p-img">
+      <div class="p-orb"></div>
+      <div class="bubble" id="authSay">¡Hola! Soy el Profe Gabbo. Antes de construir universos, necesito saber quién eres.</div>
+    </div>
+  </section>
+  <section class="auth-card card">
+    <div class="tabs" role="tablist">
+      <button class="on" data-tab="login">Ingresar</button><button data-tab="register">Registrarme</button>
+    </div>
+    <form id="fLogin" class="form">
+      <label>Usuario o correo CUN<input name="usuario" autocomplete="username" required></label>
+      <label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn" type="submit">Entrar al universo →</button>
+      <button class="lnk" type="button" id="toReset">¿Olvidaste tu contraseña?</button>
+    </form>
+    <form id="fRegister" class="form" hidden>
+      <label>Nombre completo <small>así aparecerá en tu certificado</small><input name="nombre" autocomplete="name" required></label>
+      <label>Nombre de usuario <small>3–20 caracteres, sin espacios</small><input name="usuario" autocomplete="username" pattern="[A-Za-z0-9._\-]{3,20}" required></label>
+      <label>Correo institucional<input name="correo" type="email" autocomplete="email" placeholder="nombre_apellido@cun.edu.co" required></label>
+      <div class="two"><label>Contraseña<input name="password" type="password" minlength="6" autocomplete="new-password" required></label><label>Confirmar<input name="password2" type="password" minlength="6" autocomplete="new-password" required></label></div>
+      <label class="chk"><input type="checkbox" name="acepta" required><span>Autorizo el uso de mi nombre y correo para el registro del taller y la emisión de mi certificado.</span></label>
+      <button class="btn" type="submit">Crear mi cuenta →</button>
+    </form>
+    <form id="fReset" class="form" hidden>
+      <p class="p">Escribe tu correo CUN y te enviaremos una contraseña temporal.</p>
+      <label>Correo institucional<input name="correo" type="email" required></label>
+      <button class="btn" type="submit">Enviar contraseña temporal</button>
+      <button class="lnk" type="button" id="backLogin">← Volver</button>
+    </form>
+    <div class="msg" id="authMsg"></div>
+  </section>
+</main>
+
+<!-- ============ APP ============ -->
+<main class="app" id="appView" hidden>
+  <aside class="rail">
+    <div class="silk g">// Tu progreso</div>
+    <div class="pbar"><i id="pbar"></i></div><div class="mono xs gr" id="ptxt">0 / 6 misiones</div>
+    <nav id="nav"></nav>
+  </aside>
+  <section class="stage" id="stage"></section>
+</main>
+
+<div class="toast" id="toast"></div>
+<script src="../config.js"></script>
+<script src="alumno.js"></script>
+</body>
+</html>

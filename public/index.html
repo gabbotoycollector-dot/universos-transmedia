@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Universos Transmedia · Profe Gabbo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&family=Silkscreen&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <div class="halo h1"></div><div class="halo h2"></div><div class="halo h3"></div>
+  <canvas id="cosmos"></canvas>
+
+  <!-- ============ CHROME ============ -->
+  <header class="chrome-top">
+    <div class="ctag" id="ctag">// 01 · Portada</div>
+    <img class="cun" src="img/cun.png" alt="CUN">
+  </header>
+  <footer class="chrome-bot">
+    <span class="f-left">SEMANA C - 2026C</span>
+    <nav class="nav">
+      <button class="nb" id="prev" aria-label="Anterior">←</button>
+      <button class="nb idx" id="openIdx"><span id="cnt">01</span><i>/25</i></button>
+      <button class="nb" id="next" aria-label="Siguiente">→</button>
+      <button class="nb sm" id="fs" title="Pantalla completa">⛶</button>
+    </nav>
+    <span class="f-right">CUN / Diseño Gráfico</span>
+    <div class="prog"><i id="progbar"></i></div>
+  </footer>
+
+  <!-- ============ 01 PORTADA / LIVING PORTRAIT ============ -->
+  <section class="slide cover" data-n="1" data-sec="Portada" data-acc="green,cyan">
+    <div class="cv-top">
+      <img src="img/cun.png" alt="CUN" class="cv-logo"><span class="mono g">SEMANA C // DISEÑO GRÁFICO</span>
+    </div>
+    <div class="evtag">MASTERCLASS + LABORATORIO</div>
+    <div class="cv-text">
+      <div class="silk g">// Universo 01 · Arquitecto de mundos narrativos</div>
+      <h1 class="cv-title"><span class="w">UNIVERSOS</span><span class="c">TRANSMEDIA</span></h1>
+      <p class="cv-sub">Expansión de contenidos potenciada por IA.</p>
+      <button class="cta" data-go="2">Entrar al universo <span>→</span></button>
+    </div>
+    <div class="lp" id="lp">
+      <div class="lp-orbit o1"></div><div class="lp-orbit o2"></div>
+      <div class="lp-back"></div>
+      <div class="lp-body gb" data-pose="hero">
+        <img class="lp-img" src="img/hero.webp" alt="Profe Gabbo sostiene un universo luminoso">
+        <div class="lp-orb"></div>
+        <div class="lp-light"></div>
+      </div>
+      <div class="say s-cover"></div>
+      <div class="lp-hint mono">clic en Gabbo · mueve el cursor</div>
+    </div>
+    <div class="cv-foot">
+      <div><div class="mono xs">CONFERENCISTA INVITADO / TALLERISTA</div><div class="sign">PROFE GABBO | MASTERCLASS + LABORATORIO</div></div>
+      <div class="mono xs c r">CUN / Escuela de Diseño y Comunicación<br>Programa de Diseño Gráfico<br><span class="gr">2026C</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 02 ============ -->
+  <section class="slide" data-n="2" data-sec="Apertura conceptual" data-acc="green,cyan">
+    <h2 class="ttl big">¿Y SI UNA HISTORIA PUDIERA VIVIR EN <em>MUCHOS MUNDOS?</em></h2>
+    <p class="lead w60">Un universo no tiene una sola puerta. Toca cada portal: el público puede entrar por cualquiera y encontrar algo distinto.</p>
+    <div class="portals" id="portals">
+      <svg class="pl-lines" viewBox="0 0 900 520"></svg>
+      <div class="seed">SEMILLA<br><b>una idea</b></div>
+    </div>
+    <div class="portal-read card" id="portalRead"><div class="k">// Punto de entrada</div><div class="h">Elige un portal</div><div class="p">Cada medio revela una pieza diferente del mismo universo.</div></div>
+    <img class="gb pose-r" src="img/piensa.webp" alt="Gabbo piensa" style="height:470px">
+    <div class="say" style="right:40px;top:200px;width:300px"></div>
+  </section>
+
+  <!-- ============ 03 ============ -->
+  <section class="slide" data-n="3" data-sec="Evolución narrativa" data-acc="green,cyan">
+    <h2 class="ttl">DEL CONTENIDO AL UNIVERSO</h2>
+    <p class="lead w60">Arrastra la línea del tiempo: de una obra cerrada a un ecosistema de experiencias conectadas.</p>
+    <div class="evo">
+      <svg id="evoSvg" viewBox="0 0 760 400"></svg>
+      <div class="evo-txt card"><div class="k" id="evoK">// Etapa 01</div><div class="h" id="evoH"></div><div class="p" id="evoP"></div><div class="chips" id="evoC"></div></div>
+    </div>
+    <div class="evo-range"><input type="range" min="0" max="3" step="1" value="0" id="evoR"><div class="evo-lbl"><span>Relato lineal</span><span>Adaptación</span><span>Distribución</span><span>Ecosistema</span></div></div>
+    <img class="gb pose-r" src="img/puntero.webp" alt="Gabbo señala" style="height:520px;right:10px">
+    <div class="say" style="right:250px;top:150px"></div>
+  </section>
+
+  <!-- ============ 04 ============ -->
+  <section class="slide" data-n="4" data-sec="Diferencias conceptuales" data-acc="green,cyan">
+    <h2 class="ttl">MULTIMEDIA, CROSSMEDIA Y TRANSMEDIA</h2>
+    <p class="lead">Un mismo ejemplo, tres lógicas. <span class="g">Ejemplo ficticio: “La Casa del Faro”, una leyenda de barrio.</span></p>
+    <div class="tabs" id="mctTabs">
+      <button data-t="0" class="on">MULTIMEDIA</button><button data-t="1">CROSSMEDIA</button><button data-t="2">TRANSMEDIA</button>
+    </div>
+    <div class="mct">
+      <svg id="mctSvg" viewBox="0 0 640 380"></svg>
+      <div class="mct-info">
+        <div class="silk" id="mctK"></div>
+        <div class="h2" id="mctH"></div>
+        <p class="p" id="mctP"></p>
+        <div class="card mini"><div class="k">// Pregunta clave</div><div class="p" id="mctQ"></div></div>
+        <div class="verdict" id="mctV"></div>
+      </div>
+    </div>
+    <img class="gb pose-r" src="img/conferencia.webp" alt="Gabbo en conferencia" style="height:330px;right:0;bottom:70px">
+    <div class="say" style="right:60px;top:230px;max-width:330px"></div>
+  </section>
+
+  <!-- ============ 05 ============ -->
+  <section class="slide" data-n="5" data-sec="Principios de expansión" data-acc="green,cyan">
+    <h2 class="ttl">LAS REGLAS DEL JUEGO TRANSMEDIA</h2>
+    <p class="lead">Siete principios para que un universo crezca sin romperse. Toca una carta para ver cómo se aplica.</p>
+    <div class="rules" id="rules"></div>
+    <img class="gb pose-r" src="img/menton.webp" alt="Gabbo reflexiona" style="height:430px;right:20px">
+    <div class="say" style="right:40px;top:220px;max-width:290px"></div>
+  </section>
+
+  <!-- ============ 06 ============ -->
+  <section class="slide" data-n="6" data-sec="Componentes" data-acc="green,cyan">
+    <h2 class="ttl">ANATOMÍA DE UN UNIVERSO</h2>
+    <p class="lead w50">Seis componentes que funcionan como un sistema: si uno cambia, todos se mueven.</p>
+    <div class="anat" id="anat"><svg viewBox="0 0 620 560" id="anatSvg"></svg></div>
+    <div class="anat-read card" id="anatRead"></div>
+    <img class="gb pose-r" src="img/holo.webp" alt="Gabbo con casco holográfico" style="height:470px;right:10px">
+    <div class="say" style="right:60px;top:130px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 07 ============ -->
+  <section class="slide" data-n="7" data-sec="Construcción de mundo" data-acc="violet,cyan">
+    <h2 class="ttl">WORLDBUILDING: CONSTRUYENDO MUNDOS</h2>
+    <p class="lead">Genera un mundo, fija lo que te sirva <span class="mono v">(candado)</span> y vuelve a lanzar el resto.</p>
+    <div class="wb" id="wb"></div>
+    <div class="wb-act"><button class="btn bv" id="wbRoll">⟳ Generar mundo</button><span class="mono gr" id="wbNote">Las reglas crean libertad: definen lo que puede y lo que nunca puede pasar.</span></div>
+    <img class="gb pose-r" src="img/mapa.webp" alt="Gabbo explorando mapas" style="height:330px;right:0;bottom:70px">
+    <div class="say" style="right:40px;top:250px;max-width:320px"></div>
+  </section>
+
+  <!-- ============ 08 ============ -->
+  <section class="slide" data-n="8" data-sec="Diseño de personajes" data-acc="violet,cyan">
+    <h2 class="ttl">PERSONAJES QUE EXPANDEN HISTORIAS</h2>
+    <p class="lead w50">Caso vivo: el propio Profe Gabbo. Una identidad fija —gafas, barba, calavera— y muchas historias posibles.</p>
+    <div class="attrs" id="attrs"></div>
+    <div class="mv">
+      <button class="mv-arrow" id="mvPrev">←</button>
+      <div class="mv-track" id="mvTrack"></div>
+      <button class="mv-arrow" id="mvNext">→</button>
+    </div>
+    <div class="mv-read card" id="mvRead"></div>
+    <div class="say" style="left:60px;bottom:110px;max-width:420px"></div>
+  </section>
+
+  <!-- ============ 09 ============ -->
+  <section class="slide" data-n="9" data-sec="Storytelling" data-acc="violet,cyan">
+    <h2 class="ttl">EL MOTOR NARRATIVO</h2>
+    <p class="lead">Construye una logline en vivo: máximo 40 palabras, con conflicto y algo en juego.</p>
+    <div class="motor">
+      <div class="lg-form" id="lgForm">
+        <label>Cuando… <span>(detonante)</span><input data-k="det" placeholder="la luz del faro abandonado se enciende sola"></label>
+        <label>…un/a <span>(protagonista)</span><input data-k="pro" placeholder="una estudiante de fotografía"></label>
+        <label>…debe <span>(objetivo)</span><input data-k="obj" placeholder="descubrir quién envía las señales"></label>
+        <label>…pero <span>(obstáculo)</span><input data-k="obs" placeholder="cada foto que toma muestra un lugar que aún no existe"></label>
+        <label>…si fracasa <span>(lo que está en juego)</span><input data-k="rie" placeholder="el barrio olvidará su propia historia"></label>
+        <div class="row"><button class="btn ghost" id="lgEx">Ver ejemplo</button><button class="btn ghost" id="lgClr">Limpiar</button></div>
+      </div>
+      <div class="lg-out">
+        <div class="silk v">// Logline</div>
+        <p id="lgText" class="lg-text"></p>
+        <div class="lg-meter"><i id="lgBar"></i></div><div class="mono xs" id="lgCount">0 / 40 palabras</div>
+        <div class="motor-parts">
+          <span>Premisa</span><span>Logline</span><span>Conflicto</span><span>Subtramas</span><span>Misterios</span><span>Expansión</span>
+        </div>
+      </div>
+    </div>
+    <img class="gb pose-r" src="img/v-caso.webp" alt="Gabbo detective" style="height:430px;right:10px">
+    <div class="say" style="right:60px;top:150px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 10 ============ -->
+  <section class="slide" data-n="10" data-sec="Cultura participativa" data-acc="violet,cyan">
+    <h2 class="ttl">LA AUDIENCIA TOMA EL CONTROL</h2>
+    <p class="lead w60">Sube la escalera: el público pasa de mirar a co-crear. ¿Hasta qué peldaño llega tu universo?</p>
+    <div class="ladder" id="ladder"></div>
+    <div class="lad-read card" id="ladRead"></div>
+    <div class="chips abs" style="left:80px;bottom:110px"><span>Prosumidores</span><span>Comunidades</span><span>Interactividad</span><span>Creación colectiva</span></div>
+    <img class="gb pose-r" src="img/selfie.webp" alt="Gabbo se toma una selfie" style="height:470px;right:20px">
+    <div class="say" style="right:70px;top:120px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 11 ============ -->
+  <section class="slide" data-n="11" data-sec="Ecosistema narrativo" data-acc="violet,cyan">
+    <h2 class="ttl">ARQUITECTURA DE EXPANSIÓN</h2>
+    <p class="lead">¿Qué experiencia nueva vive el público en cada plataforma?</p>
+    <div class="switch" id="archSw"><button data-m="rep">Repetir</button><button data-m="exp" class="on">Expandir</button></div>
+    <div class="arch"><svg id="archSvg" viewBox="0 0 860 560"></svg></div>
+    <div class="arch-read card" id="archRead"></div>
+    <img class="gb pose-r" src="img/menton.webp" data-alt="img/no.webp" id="archGabbo" alt="Gabbo" style="height:420px;right:10px">
+    <div class="say" style="right:70px;top:150px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 12 ============ -->
+  <section class="slide" data-n="12" data-sec="Plataformas y medios" data-acc="violet,cyan">
+    <h2 class="ttl">UNA HISTORIA, MÚLTIPLES EXPERIENCIAS</h2>
+    <p class="lead">Cada medio tiene un superpoder. Voltea las cartas: <span class="mono v">lo que mejor hace → lo que aporta a “La Casa del Faro”.</span></p>
+    <div class="flips" id="flips"></div>
+    <img class="gb pose-r" src="img/monitor.webp" alt="Gabbo en su escritorio" style="height:250px;right:10px;bottom:72px">
+    <div class="say" style="right:40px;top:300px;max-width:330px"></div>
+  </section>
+
+  <!-- ============ 13 ============ -->
+  <section class="slide" data-n="13" data-sec="Caso ficticio" data-acc="violet,cyan">
+    <h2 class="ttl">CASO DEMOSTRATIVO: <span class="c">FRECUENCIA 2049</span></h2>
+    <div class="fict">CASO FICTICIO · NO ES UN CASO REAL DOCUMENTADO</div>
+    <p class="lead w60">Una estación de radio recibe transmisiones de un futuro desconocido. Sintoniza el dial y encuentra las cuatro plataformas del universo.</p>
+    <div class="radio">
+      <canvas id="noise" width="560" height="240"></canvas>
+      <div class="radio-scr" id="radioScr"></div>
+      <div class="dial">
+        <div class="dial-scale" id="dialScale"></div>
+        <input type="range" id="dial" min="880" max="1080" value="880" step="1">
+        <div class="dial-freq"><span id="freq">88.0</span> MHz</div>
+      </div>
+      <div class="found" id="found"></div>
+      <button class="btn ghost sm snd" id="sndBtn">🔈 Sonido: no</button>
+    </div>
+    <img class="gb pose-r" src="img/escritorio-hacker.webp" alt="Gabbo en la consola" style="height:480px;right:10px">
+    <div class="say" style="right:90px;top:120px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 14 ============ -->
+  <section class="slide" data-n="14" data-sec="Inteligencia artificial" data-acc="magenta,violet">
+    <h2 class="ttl">IA: EL NUEVO <em class="m">COPILOTO</em> CREATIVO</h2>
+    <p class="lead">Seis momentos donde la IA acelera el trabajo. Las herramientas son sugerencias intercambiables.</p>
+    <div class="uses" id="uses"></div>
+    <div class="copi"><span class="silk m">Copiloto ≠ piloto</span><b>La dirección, la selección y la decisión final son humanas.</b></div>
+    <img class="gb pose-r" src="img/futurista.webp" alt="Gabbo futurista" style="height:520px;right:0">
+    <div class="say" style="right:70px;top:110px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 15 ============ -->
+  <section class="slide" data-n="15" data-sec="Flujo de trabajo" data-acc="magenta,violet">
+    <h2 class="ttl">DEL PROMPT AL UNIVERSO</h2>
+    <p class="lead">Un flujo en cinco etapas. Toca cada estación para ver qué entra, qué sale y quién decide.</p>
+    <div class="flow" id="flow"></div>
+    <div class="flow-read" id="flowRead"></div>
+    <div class="outs"><span class="silk gr">Salidas →</span><span>Textuales</span><span>Visuales</span><span>Sonoras</span><span>Audiovisuales</span><span>Interactivas</span></div>
+    <img class="gb pose-r" src="img/v-hacker.webp" alt="Gabbo hacker" style="height:420px;right:10px">
+    <div class="say" style="right:60px;top:170px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 16 ============ -->
+  <section class="slide" data-n="16" data-sec="Criterio y responsabilidad" data-acc="magenta,violet">
+    <h2 class="ttl">DIRECCIÓN CREATIVA <em class="m">HUMANA</em></h2>
+    <p class="lead w60">Antes de publicar, pasa cada salida de IA por el filtro humano. Marca lo que ya revisaste.</p>
+    <div class="filter" id="filter"></div>
+    <div class="gauge"><div class="silk">// Listo para publicar</div><div class="gbar"><i id="gaugeBar"></i></div><div class="gval" id="gaugeVal">0%</div></div>
+    <img class="gb pose-r" src="img/lupa.webp" alt="Gabbo con lupa" style="height:500px;right:10px">
+    <div class="say" style="right:60px;top:120px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 17 ============ -->
+  <section class="slide" data-n="17" data-sec="Inicio del laboratorio" data-acc="green,cyan">
+    <div class="silk g" style="position:absolute;left:80px;top:140px">// Laboratorio · 170 minutos</div>
+    <h2 class="mission">MISIÓN:<br><span class="g">EXPANDE TU</span><br><span class="c">UNIVERSO</span></h2>
+    <p class="lead abs" style="left:80px;top:470px;max-width:640px">Cada equipo transformará una idea en un ecosistema transmedia propio: una idea, múltiples experiencias.</p>
+    <div class="lab-tl" id="labTl"></div>
+    <a class="portal-qr" id="portalQr" href="alumno/" target="_blank" rel="noopener"><div class="qr" id="qrBox"></div><div><div class="silk g">// Portal de estudiantes</div><b>Registra tu cuenta CUN y trabaja tus misiones</b><span class="mono" id="qrUrl"></span></div></a>
+    <img class="gb pose-r" src="img/corre.webp" alt="Gabbo corre" style="height:470px;right:60px;top:110px;bottom:auto">
+    <div class="say" style="right:420px;top:150px;max-width:320px"></div>
+  </section>
+
+  <!-- ============ 18 ============ -->
+  <section class="slide phase" data-n="18" data-sec="Definición de la idea" data-acc="green,cyan" data-min="25">
+    <div class="ph-num">01</div>
+    <h2 class="ttl">FASE 01: LA SEMILLA CREATIVA</h2>
+    <p class="lead">Elige un tipo de semilla y escribe tu idea central en <b class="g">máximo tres líneas</b>.</p>
+    <div class="timer" data-min="25"></div>
+    <div class="seeds" id="seeds"></div>
+    <div class="spark card" id="spark"><div class="k">// Chispa aleatoria</div><div class="p" id="sparkTxt">Pulsa “Girar” para recibir un detonante.</div><button class="btn ghost sm" id="sparkBtn">⟳ Girar</button></div>
+    <div class="idea">
+      <label class="mono xs g">TU IDEA CENTRAL</label>
+      <textarea id="ideaTxt" maxlength="320" placeholder="Ej.: Una emisora comienza a recibir señales de radio procedentes de un futuro desconocido. Cada transmisión revela una pista sobre un acontecimiento que todavía no ha ocurrido."></textarea>
+      <div class="mono xs gr" id="ideaCnt">0 / 280 caracteres · máx. 3 líneas</div>
+      <div class="two"><label class="mono xs">PROPÓSITO<input id="ideaProp" placeholder="educar, entretener, comunicar…"></label><label class="mono xs">AUDIENCIA<input id="ideaAud" placeholder="¿para quién?"></label></div>
+    </div>
+    <img class="gb pose-r" src="img/tablet.webp" alt="Gabbo con tableta" style="height:400px;right:10px">
+    <div class="say" style="right:50px;top:240px;max-width:290px"></div>
+  </section>
+
+  <!-- ============ 19 ============ -->
+  <section class="slide phase" data-n="19" data-sec="Biblia narrativa con IA" data-acc="cyan,violet" data-min="35">
+    <div class="ph-num">02</div>
+    <h2 class="ttl">FASE 02: CONSTRUYE TU UNIVERSO</h2>
+    <p class="lead">La biblia narrativa: ocho piezas que tu equipo debe tener claras.</p>
+    <div class="timer" data-min="35"></div>
+    <div class="bible" id="bible"></div>
+    <div class="prompt-box" data-prompt="01"></div>
+    <img class="gb pose-r" src="img/dibuja.webp" alt="Gabbo diseña" style="height:300px;right:10px;bottom:72px">
+    <div class="say" style="right:40px;top:300px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 20 ============ -->
+  <section class="slide phase" data-n="20" data-sec="Mapa de plataformas" data-acc="violet,cyan" data-min="35">
+    <div class="ph-num">03</div>
+    <h2 class="ttl">FASE 03: DISEÑA LA EXPANSIÓN</h2>
+    <p class="lead">Mínimo tres plataformas. Ninguna repite a otra: cada una aporta una pieza distinta.</p>
+    <div class="timer" data-min="35"></div>
+    <div class="mx">
+      <div class="mx-tabs" id="mxTabs"></div>
+      <div class="mx-form" id="mxForm"></div>
+      <div class="mx-side">
+        <div class="mx-check" id="mxCheck"></div>
+        <button class="btn bv" id="mxCopy">Copiar matriz</button>
+        <button class="btn ghost" id="mxPrompt">Ver prompt 02</button>
+      </div>
+    </div>
+    <div class="say" style="right:50px;top:240px;max-width:290px"></div>
+    <img class="gb pose-r" src="img/v-explorador.webp" alt="Gabbo con binoculares" style="height:240px;right:20px;bottom:72px;z-index:1">
+  </section>
+
+  <!-- ============ 21 ============ -->
+  <section class="slide phase" data-n="21" data-sec="Prototipado" data-acc="green,cyan" data-min="40">
+    <div class="ph-num">04</div>
+    <h2 class="ttl">FASE 04: PRODUCE CON IA</h2>
+    <p class="lead">Tres prototipos, una sola coherencia: misma identidad, funciones narrativas distintas.</p>
+    <div class="timer" data-min="40"></div>
+    <div class="protos" id="protos"></div>
+    <div class="prompt-box" data-prompt="03"></div>
+    <img class="gb pose-r" src="img/camara.webp" alt="Gabbo con cámara" style="height:330px;right:20px;bottom:72px">
+    <div class="say" style="right:40px;top:290px;max-width:290px"></div>
+  </section>
+
+  <!-- ============ 22 ============ -->
+  <section class="slide phase" data-n="22" data-sec="Pitch y socialización" data-acc="cyan,violet" data-min="25">
+    <div class="ph-num">05</div>
+    <h2 class="ttl">FASE 05: CONECTA Y PRESENTA</h2>
+    <p class="lead">Pitch de tres minutos por equipo. El reloj marca qué pregunta deberías estar respondiendo.</p>
+    <div class="timer" data-min="25"></div>
+    <div class="pitch">
+      <div class="pitch-clock"><input id="teamName" placeholder="Nombre del equipo"><div class="pc-time" id="pcTime">3:00</div><div class="pc-bar"><i id="pcBar"></i></div>
+        <div class="row"><button class="btn bc" id="pcGo">▶ Iniciar pitch</button><button class="btn ghost" id="pcReset">↺</button><button class="btn ghost" id="pcNext">Siguiente equipo</button></div>
+        <div class="mono xs gr" id="pcLog"></div>
+      </div>
+      <ol class="pq" id="pq">
+        <li>¿Cuál es la idea central?</li><li>¿Cómo funciona el universo?</li><li>¿Qué papel cumple cada plataforma?</li><li>¿Cómo intervino la IA?</li><li>¿Qué puede hacer el público dentro de la experiencia?</li>
+      </ol>
+    </div>
+    <div class="peer"><span class="silk c">// Retroalimentación del grupo</span><span>Posibilidades de expansión</span><span>Inconsistencias</span><span>Oportunidades de participación</span><button class="btn ghost sm" id="p04">Prompt 04 · Auditor</button></div>
+    <img class="gb pose-r" src="img/podio.webp" alt="Gabbo en el podio" style="height:380px;right:20px">
+    <div class="say" style="right:50px;top:240px;max-width:290px"></div>
+  </section>
+
+  <!-- ============ 23 ============ -->
+  <section class="slide" data-n="23" data-sec="Entregables" data-acc="green,violet">
+    <h2 class="ttl">EL DOSSIER TRANSMEDIA</h2>
+    <p class="lead">Seis entregables. Marca los que tu equipo ya tiene listos.</p>
+    <div class="dossier" id="dossier"></div>
+    <div class="dz-prog"><span class="silk" id="dzTxt">0 / 6 listos</span><div class="gbar"><i id="dzBar"></i></div></div>
+    <img class="gb pose-r" src="img/revelado.webp" alt="Gabbo revela fotografías" style="height:330px;right:10px;bottom:72px">
+    <div class="say" style="right:60px;top:270px;max-width:300px"></div>
+  </section>
+
+  <!-- ============ 24 ============ -->
+  <section class="slide" data-n="24" data-sec="Rúbrica" data-acc="cyan,violet">
+    <h2 class="ttl">¿CÓMO EVALUAMOS UN UNIVERSO?</h2>
+    <p class="lead">Rúbrica de 100 puntos. Úsala para coevaluar: mueve cada criterio.</p>
+    <div class="rub" id="rub"></div>
+    <div class="rub-total"><div class="silk">// Puntaje</div><div class="rt-num"><span id="rubTot">0</span><i>/100</i></div><button class="btn ghost sm" id="rubCopy">Copiar evaluación</button><button class="btn ghost sm" id="rubReset">↺</button></div>
+    <div class="principle"><span class="silk m">Principio</span>Una producción espectacular no es transmedia si las plataformas no aportan valor narrativo diferenciado.</div>
+    <img class="gb pose-r" src="img/formal.webp" alt="Gabbo formal" style="height:430px;right:20px">
+    <div class="say" style="right:30px;top:120px;max-width:280px"></div>
+  </section>
+
+  <!-- ============ 25 ============ -->
+  <section class="slide close" data-n="25" data-sec="Cierre" data-acc="green,violet,magenta">
+    <img class="gb pose-l" src="img/dab.webp" alt="Gabbo celebra" style="height:480px;left:90px;bottom:200px">
+    <div class="say" style="left:500px;top:120px;width:290px"></div>
+    <div class="cl-text">
+      <h2 class="cl-title">EL UNIVERSO<br><span class="c">APENAS COMIENZA</span></h2>
+      <p class="cl-sub">La IA amplía lo que podemos producir. El criterio humano decide qué vale la pena contar.</p>
+      <div class="cl-q card"><div class="k">// Antes de irte</div><div class="p">Comparte una decisión creativa que tu equipo tomó, ajustó o corrigió con criterio humano, en lugar de aceptar automáticamente la salida de la IA.</div></div>
+    </div>
+    <div class="cv-foot">
+      <div><div class="mono xs">CONFERENCISTA INVITADO / TALLERISTA</div><div class="sign">PROFE GABBO // MASTERCLASS + LABORATORIO</div></div>
+      <div class="mono xs c r">CUN / Escuela de Diseño y Comunicación<br>Programa de Diseño Gráfico<br><span class="gr">2026C</span></div>
+    </div>
+  </section>
+
+  <!-- ============ INDEX / MODAL ============ -->
+  <div class="overlay" id="idx"><div class="ov-in"><div class="ov-h"><span class="silk g">// Mapa del universo</span><button class="nb" id="closeIdx">✕</button></div><div class="ov-grid" id="ovGrid"></div></div></div>
+  <div class="overlay" id="pmodal"><div class="ov-in pm"><div class="ov-h"><span class="silk m" id="pmTitle"></span><button class="nb" id="closePm">✕</button></div><pre id="pmText"></pre><div class="row"><button class="btn bm" id="pmCopy">Copiar prompt</button><span class="mono xs gr" id="pmMsg"></span></div></div></div>
+  <div class="toast" id="toast"></div>
+</div>
+<script src="vendor/qrcode.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
