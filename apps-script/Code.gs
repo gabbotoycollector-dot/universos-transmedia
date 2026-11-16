@@ -314,7 +314,7 @@ function buildTemplate_() {
     const b = s.insertTextBox(t, x, y, w, h), st = b.getText().getTextStyle();
     st.setFontFamily(o.f || 'Space Grotesk').setFontSize(o.s || 11).setForegroundColor(o.c || '#F0F4F8').setBold(!!o.b);
     if (o.a) b.getText().getParagraphStyle().setParagraphAlignment(o.a);
-    if (o.ls) b.getText().getParagraphStyle().setLineSpacing(o.ls);
+    if (o.ls) { try { b.getText().getParagraphStyle().setLineSpacing(Math.max(100, o.ls)); } catch (e) {} }
     b.setContentAlignment(o.v || SlidesApp.ContentAlignment.TOP);
     return b;
   };
