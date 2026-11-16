@@ -456,3 +456,10 @@ svg text{font-family:'Space Grotesk',sans-serif}
 .portal-qr .qr img,.portal-qr .qr svg{width:100%;height:100%;display:block}
 .portal-qr b{display:block;font-family:var(--fH);font-size:19px;line-height:1.15;margin:6px 0 8px}
 .portal-qr .mono{font-size:11.5px;color:var(--cyan);word-break:break-all}
+
+.logos{display:flex;align-items:center;gap:26px}
+.logos img{height:26px;opacity:.95}
+.logos img.dv{height:40px}
+.sticker{width:170px;transform:rotate(-7deg);filter:drop-shadow(0 10px 20px rgba(0,0,0,.6));vertical-align:middle;margin-left:26px;animation:wob 4s ease-in-out infinite}
+@keyframes wob{50%{transform:rotate(-3deg) scale(1.03)}}
+.sticker.cl{width:150px;display:block;margin:0 0 18px auto}

@@ -44,7 +44,7 @@ label small{font-family:var(--fM);font-weight:400;font-size:11px;color:var(--foo
 /* top */
 .top{display:flex;justify-content:space-between;align-items:center;padding:20px clamp(16px,4vw,48px);border-bottom:1px solid var(--line);gap:12px;position:sticky;top:0;background:rgba(8,9,10,.82);backdrop-filter:blur(10px);z-index:20}
 .brand{display:flex;align-items:center;gap:14px;text-decoration:none}
-.brand img{height:26px}.brand .mono{font-size:12px;font-weight:600}
+.brand img{height:26px}.brand img.bl{height:30px}.brand .mono{font-size:12px;font-weight:600}
 .who{display:flex;align-items:center;gap:10px;font-family:var(--fH);font-weight:600;font-size:15px}
 .avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--acc);font-family:var(--fM);font-size:13px;color:var(--acc)}
 .demo{background:rgba(228,0,124,.12);border-bottom:1px solid var(--magenta);color:#ff8cc6;font-family:var(--fM);font-size:12.5px;padding:8px clamp(16px,4vw,48px)}
@@ -158,3 +158,13 @@ label small{font-family:var(--fM);font-weight:400;font-size:11px;color:var(--foo
   .p-img{position:relative;left:auto;bottom:auto;height:250px;transform:none!important}
   .p-ring,.p-orb{display:none}
 }
+
+.auth-hero{position:relative}
+.auth-hero .sticker{position:absolute;right:-10px;top:380px;width:150px;transform:rotate(-7deg);filter:drop-shadow(0 10px 20px rgba(0,0,0,.6));animation:wob 4s ease-in-out infinite;z-index:2}
+@keyframes wob{50%{transform:rotate(-3deg) scale(1.03)}}
+.pfoot{border-top:1px solid var(--line);padding:22px clamp(16px,4vw,48px);display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.logos{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.logos img{height:26px}.logos img.dv{height:38px}.logos img.dg{height:54px;transform:rotate(-5deg)}
+.rail-logos{display:flex;gap:16px;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);opacity:.85}
+.rail-logos img{height:20px}.rail-logos img+img{height:30px}
+@media (max-width:960px){.auth-hero .sticker{top:auto;bottom:250px;width:110px}.rail-logos{display:none}.pfoot{justify-content:center;text-align:center}}

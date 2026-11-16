@@ -337,13 +337,11 @@ function buildTemplate_() {
     return b;
   };
   const R = SlidesApp.ParagraphAlignment;
-  // logo + header
-  try { s.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/cun.png').getBlob(), 40, 30, 74, 22); } catch (e) { tx('CUN', 40, 28, 80, 24, { f: 'Bricolage Grotesque', s: 16, b: true }); }
-  tx('SEMANA C // DISEÑO GRÁFICO', 124, 32, 240, 18, { f: 'JetBrains Mono', s: 8.5, c: '#00FFA3', b: true });
-  const tag = s.insertShape(SlidesApp.ShapeType.RECTANGLE, W - 210, 28, 170, 22);
-  tag.getFill().setSolidFill('#E4007C', .12); tag.getBorder().getLineFill().setSolidFill('#E4007C'); tag.getBorder().setWeight(.75);
-  tag.getText().setText('MASTERCLASS + LABORATORIO'); tag.getText().getTextStyle().setFontFamily('JetBrains Mono').setFontSize(7.5).setForegroundColor('#FF7AC0');
-  tag.getText().getParagraphStyle().setParagraphAlignment(R.CENTER); tag.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
+  // logos (cabecera)
+  const logo = (file, x, y, w, h, rot) => { try { const im = s.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/' + file).getBlob(), x, y, w, h); if (rot) im.setRotation(rot); return im; } catch (e) { console.warn('Logo no cargado: ' + file); } };
+  logo('logo-disgrafico.png', 40, 26, 145, 25);
+  logo('logo-samalab.png', W - 228, 29, 91, 22);
+  logo('logo-designverse.png', W - 122, 20, 82, 37);
   // body
   tx('// CERTIFICADO DE PARTICIPACIÓN', 40, 92, 420, 18, { f: 'Silkscreen', s: 9, c: '#00FFA3' });
   tx('Se certifica que', 40, 110, 420, 20, { s: 12, c: '#A0A0A0' });
@@ -354,6 +352,7 @@ function buildTemplate_() {
   tx('Creó el universo narrativo «{{UNIVERSO}}», con biblia narrativa, mapa transmedia, tres prototipos y bitácora de IA.', 40, 260, 420, 30, { s: 9, c: '#A0B0C0' });
   // gabbo
   try { s.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/cert-gabbo.png').getBlob(), W - 240, 72, 200, 240); } catch (e) {}
+  logo('logo-divergente.png', W - 246, 248, 96, 65, -6);
   // footer
   s.insertLine(SlidesApp.LineCategory.STRAIGHT, 40, H - 70, W - 40, H - 70).getLineFill().setSolidFill('#2A2B31');
   insertSignature_(s, H);
