@@ -168,3 +168,6 @@ label small{font-family:var(--fM);font-weight:400;font-size:11px;color:var(--foo
 .rail-logos{display:flex;gap:16px;align-items:center;margin-top:28px;padding-top:18px;border-top:1px solid var(--line);opacity:.85}
 .rail-logos img{height:20px}.rail-logos img+img{height:30px}
 @media (max-width:960px){.auth-hero .sticker{top:auto;bottom:250px;width:110px}.rail-logos{display:none}.pfoot{justify-content:center;text-align:center}}
+
+.dl{display:block;margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:14px;color:var(--sub);text-decoration:none}.dl b{color:var(--cyan);font-weight:600}.dl:hover b{text-decoration:underline}
+.dl.sm{margin-top:18px;font-family:var(--fM);font-size:12px;color:var(--cyan);border-top:0;padding-top:0}
