@@ -14,7 +14,7 @@
 const CFG = {
   APP_NAME: 'Universos Transmedia · Semana C 2026C',
   ALLOWED_DOMAINS: ['cun.edu.co'],          // correos permitidos
-  SITE_URL: 'https://universos-transmedia.pages.dev', // ← cambia por tu URL de Cloudflare (sin / final)
+  SITE_URL: 'https://universos-transmedia.grafyco-smr.workers.dev', // URL de Cloudflare (sin / final)
   SESSION_DAYS: 7,
   SENDER_NAME: 'Profe Gabbo · Universos Transmedia',
   MAX_CERT_SENDS: 3,

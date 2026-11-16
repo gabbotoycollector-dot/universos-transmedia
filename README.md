@@ -15,7 +15,7 @@ Taller **Universos transmedia: expansión de contenidos potenciada por IA** — 
 
 **Opción B (Workers con assets):** *Workers & Pages* → *Create* → *Import a repository* → este repo. Usa `wrangler.jsonc` (sin build).
 
-Anota la URL final (ej. `https://universos-transmedia.pages.dev`).
+Anota la URL final (ej. `https://universos-transmedia.grafyco-smr.workers.dev`).
 
 ## 2 · Backend en Google Apps Script
 
