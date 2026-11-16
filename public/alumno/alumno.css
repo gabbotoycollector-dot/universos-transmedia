@@ -128,7 +128,7 @@ label small{font-family:var(--fM);font-weight:400;font-size:11px;color:var(--foo
 .cert-prev .u{font-family:var(--fT);font-size:clamp(9px,1.1vw,15px);color:var(--cyan)}
 .cert-prev .s{font-size:clamp(7px,.75vw,11px);color:var(--body);max-width:60%;margin-top:2%}
 .cert-prev img{position:absolute;right:4%;bottom:12%;height:68%}
-.cert-prev img.firma{right:auto;left:22%;bottom:4%;height:20%}
+.cert-prev img.firma{right:auto;left:7%;bottom:3%;height:22%}
 .cert-prev .f{position:absolute;left:5%;right:5%;bottom:5%;border-top:1px solid var(--line);padding-top:2%;font-family:var(--fM);font-size:clamp(6px,.65vw,9px);color:var(--sub);display:flex;justify-content:space-between}
 .checklist{display:flex;flex-direction:column;gap:8px;margin:16px 0}
 .checklist div{display:flex;gap:10px;align-items:center;font-family:var(--fH);font-size:15.5px}

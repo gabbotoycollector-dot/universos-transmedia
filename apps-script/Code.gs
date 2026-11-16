@@ -86,6 +86,7 @@ function setup() {
 /** Vuelve a crear la plantilla del certificado (si la borraste o quieres empezar de nuevo). */
 function rebuildTemplate() {
   const P = PropertiesService.getScriptProperties();
+  if (P.getProperty('TPL_ID')) { try { DriveApp.getFileById(P.getProperty('TPL_ID')).setTrashed(true); } catch (e) {} }
   const id = buildTemplate_();
   if (P.getProperty('FOLDER_ID')) DriveApp.getFileById(id).moveTo(DriveApp.getFolderById(P.getProperty('FOLDER_ID')));
   P.setProperty('TPL_ID', id);
@@ -304,7 +305,7 @@ function esc_(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<'
 function insertSignature_(slide, H) {
   slide.getImages().forEach(img => { if (img.getTitle() === 'firma') img.remove(); });
   try {
-    const img = slide.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/firma-gabbo.png').getBlob(), 160, H - 98, 72, 72);
+    const img = slide.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/firma-gabbo.png').getBlob(), 62, H - 118, 76, 76);
     img.setTitle('firma');
   } catch (e) { console.warn('No se pudo cargar la firma: ' + e); }
 }
@@ -345,20 +346,19 @@ function buildTemplate_() {
   tag.getText().getParagraphStyle().setParagraphAlignment(R.CENTER); tag.setContentAlignment(SlidesApp.ContentAlignment.MIDDLE);
   // body
   tx('// CERTIFICADO DE PARTICIPACIÓN', 40, 92, 420, 18, { f: 'Silkscreen', s: 9, c: '#00FFA3' });
-  tx('Se certifica que', 40, 114, 420, 20, { s: 12, c: '#A0A0A0' });
-  tx('{{NOMBRE}}', 40, 136, 470, 70, { f: 'Bricolage Grotesque', s: 30, b: true, c: '#F5F0E6', ls: 90 });
-  tx('participó y completó el taller', 40, 212, 420, 18, { s: 11, c: '#A0B0C0' });
-  tx('UNIVERSOS TRANSMEDIA', 40, 230, 470, 30, { f: 'Boldonse', s: 18, c: '#00F0FF' });
-  tx('Expansión de contenidos potenciada por IA · Masterclass + laboratorio · 4 horas', 40, 262, 470, 18, { s: 10.5, c: '#F0F4F8' });
-  tx('Creó el universo narrativo «{{UNIVERSO}}», con biblia narrativa, mapa transmedia, tres prototipos y bitácora de IA.', 40, 282, 450, 34, { s: 9.5, c: '#A0B0C0', ls: 115 });
+  tx('Se certifica que', 40, 110, 420, 20, { s: 12, c: '#A0A0A0' });
+  tx('{{NOMBRE}}', 40, 128, 420, 66, { f: 'Bricolage Grotesque', s: 26, b: true, c: '#F5F0E6' });
+  tx('participó y completó el taller', 40, 196, 420, 18, { s: 11, c: '#A0B0C0' });
+  tx('UNIVERSOS TRANSMEDIA', 40, 212, 430, 30, { f: 'Boldonse', s: 17, c: '#00F0FF' });
+  tx('Expansión de contenidos potenciada por IA · Masterclass + laboratorio · 4 horas', 40, 242, 430, 18, { s: 10, c: '#F0F4F8' });
+  tx('Creó el universo narrativo «{{UNIVERSO}}», con biblia narrativa, mapa transmedia, tres prototipos y bitácora de IA.', 40, 260, 420, 30, { s: 9, c: '#A0B0C0' });
   // gabbo
-  try { s.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/cert-gabbo.png').getBlob(), W - 250, 70, 210, 252); } catch (e) {}
+  try { s.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/cert-gabbo.png').getBlob(), W - 240, 72, 200, 240); } catch (e) {}
   // footer
   s.insertLine(SlidesApp.LineCategory.STRAIGHT, 40, H - 70, W - 40, H - 70).getLineFill().setSolidFill('#2A2B31');
-  tx('TALLERISTA', 40, H - 62, 200, 14, { f: 'JetBrains Mono', s: 7, c: '#A0A0A0' });
-  tx('PROFE GABBO', 40, H - 50, 260, 20, { f: 'Bricolage Grotesque', s: 14, b: true });
   insertSignature_(s, H);
-  tx('Gabriel Antolínez · Programa de Diseño Gráfico', 40, H - 32, 300, 14, { f: 'JetBrains Mono', s: 7, c: '#666666' });
+  tx('LUIS GABRIEL ANTOLÍNEZ CHACÍN', 40, H - 50, 330, 18, { f: 'Bricolage Grotesque', s: 12.5, b: true });
+  tx('Profe Gabbo · Tallerista · Programa de Diseño Gráfico', 40, H - 32, 330, 14, { f: 'JetBrains Mono', s: 7, c: '#A0A0A0' });
   tx('CUN / Escuela de Diseño y Comunicación\nPrograma de Diseño Gráfico · Semana C 2026C', W - 340, H - 62, 300, 26, { f: 'JetBrains Mono', s: 7, c: '#00F0FF', a: R.END });
   tx('{{FECHA}} · Código {{CODIGO}}', W - 340, H - 34, 300, 14, { f: 'JetBrains Mono', s: 7, c: '#A0A0A0', a: R.END });
   pres.saveAndClose();
