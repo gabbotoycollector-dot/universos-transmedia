@@ -305,7 +305,7 @@ function esc_(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<'
 function insertSignature_(slide, H) {
   slide.getImages().forEach(img => { if (img.getTitle() === 'firma') img.remove(); });
   try {
-    const img = slide.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/firma-gabbo.png').getBlob(), 62, H - 118, 76, 76);
+    const img = slide.insertImage(UrlFetchApp.fetch(CFG.SITE_URL + '/img/firma-gabbo.png').getBlob(), 62, H - 112, 74, 74);
     img.setTitle('firma');
   } catch (e) { console.warn('No se pudo cargar la firma: ' + e); }
 }
